@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indexpage</title>
+</head>
+<body>
+    <center>
+    <h1>Add content</h1>
+    <b> Example</b>
+    </center>
+    <div style="background:#444857;color:white;"><topbar>Enter Details</topbar></div>
+    <b>
+        <center>
+        <form action="" method="post">
+            {% csrf_token %}
+            <br>
+            <input type="text" name="type" placeholder="Enter Type">
+            <br>
+            <input type="text" name="name" placeholder="Enter name">
+            <br>
+            <input type="submit" value="Add Data">
+        </form>
+
+            <h1>View the table</h1>
+            <a href=""><button>Fetch and refresh</button></a>
+            <br>
+            <table class=".zui-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                    </tr>
+                </thead>
+                {% for instance in data %}
+                    <tr>
+                        <td>
+                            {{ instance.fields.name}}
+                        </td>
+                        <td>
+                            {{ instance.fields.type}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </b>
+</body>
+</html>
